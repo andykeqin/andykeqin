@@ -21,7 +21,7 @@
 <form method="post" action="index.php" enctype="multipart/form-data" >
       Name  <input type="text" name="name" id="name"/></br>
       Email <input type="text" name="email" id="email"/></br>
-      Company Name <input type="text" name="companyname" id="companyname"/></br>
+      Company Name <input type="text" name="CompanyName" id="CompanyName"/></br>
       <input type="submit" name="submit" value="Submit" />
 </form>
 <?php
@@ -45,7 +45,7 @@
     try {
         $name = $_POST['name'];
         $email = $_POST['email'];
-		$companyname = $_POST['companyname'];
+		$companyname = $_POST['Company Name'];
         $date = date("Y-m-d");
         // Insert data
         $sql_insert = "INSERT INTO registration_tbl (name, email, companyname, date) 
