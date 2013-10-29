@@ -45,9 +45,10 @@
     try {
         $name = $_POST['name'];
         $email = $_POST['email'];
+		$companyname = $_POST['companyname'];
         $date = date("Y-m-d");
         // Insert data
-        $sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+        $sql_insert = "INSERT INTO registration_tbl (name, email, companyname, date) 
                    VALUES (?,?,?)";
         $stmt = $conn->prepare($sql_insert);
         $stmt->bindValue(1, $name);
@@ -70,6 +71,7 @@
         echo "<table>";
         echo "<tr><th>Name</th>";
         echo "<th>Email</th>";
+		echo "<th>companyname</th>";
         echo "<th>Date</th></tr>";
         foreach($registrants as $registrant) {
             echo "<tr><td>".$registrant['name']."</td>";
