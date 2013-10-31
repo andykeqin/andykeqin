@@ -39,12 +39,27 @@
         die(var_dump($e));
     }
         
+    // Insert registration info
+    if(!empty($_POST)) {
+    try {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $company = $_POST['company'];
+        $date = date("Y-m-d");
+    }
+    catch(Exception $e) {
+        die(var_dump($e));
+    }
+    echo "<h3>Your're registered!</h3>";
+    }    
+        
     // Search
 
-    $sql_select = "SELECT name, email, date, company FROM registration_tbl0";
+    $sql_select = "SELECT * FROM registration_tbl0";
     $stmt = $conn->query($sql_select);
+    $stmt->execute();
     $registrants = $stmt->fetchAll();
-    if(count($registrants) > 0) {
+    if( .$registrant['name'] =  ) {
         echo "<h2>People who are registered:</h2>";
         echo "<table>";
         echo "<tr><th>Name</th>";
@@ -59,7 +74,7 @@
         }
         echo "</table>";
     } else {
-        echo "<h3>No one is currently registered.</h3>";
+        echo "<h3>No one is searched.</h3>";
     }
 ?>
 </body>
