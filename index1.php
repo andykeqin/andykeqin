@@ -53,11 +53,11 @@
     }    
         
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl0 where name LIKE '%$name'";
+    $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE '%$name'";
     $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
-    if( .$registrant['name'] >0 ) {
+    if(count($registrants) >0 ) {
         echo "<h2>Result:</h2>";
         echo "<table>";
         echo "<tr><th>Name</th>";
