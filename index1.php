@@ -16,10 +16,10 @@
 </style>
 </head>
 <body>
-<h1>Search here!</h1>
+<h2>Search here!</h2>
 <p>Fill in the name which you want to search, then click <strong>Search</strong> to list it.</p>
 <form method="post" action="index1.php" enctype="multipart/form-data" >
-      Name <input type="text" name="name" id="name"/></br>
+      Search <input type="text" name="name" id="name"/></br>
       <input type="submit" name="search" value="Search" />
 </form>
 <?php
@@ -52,14 +52,13 @@
     }
     }    
         
-    // Search
-
-    $sql_select = "SELECT * FROM registration_tbl0";
-    $stmt = $conn->query($sql_select);
+    // Retrieve data
+    $sql_select = "SELECT * FROM registration_tbl0 where name LIKE '%$name'";
+    $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
-    if( .$registrant['name'] =  ) {
-        echo "<h2>People who are registered:</h2>";
+    if( .$registrant['name'] >0 ) {
+        echo "<h2>Result:</h2>";
         echo "<table>";
         echo "<tr><th>Name</th>";
         echo "<th>Email</th>";
