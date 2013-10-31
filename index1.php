@@ -1,5 +1,4 @@
 
-
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -19,7 +18,7 @@
 </head>
 <body>
 <h1>Register here!</h1>
-<p>Fill in your name and email address, then click <strong>Search</strong> to register.</p>
+<p>Fill in the name which you want to search, then click <strong>Search</strong> to list it.</p>
 <form method="post" action="index.php" enctype="multipart/form-data" >
       Name <input type="text" name="name" id="name"/></br>
       <input type="search" name="search" value="Search" />
@@ -40,13 +39,6 @@
     catch(Exception $e){
         die(var_dump($e));
     }
-    // Insert registration info
-    if(!empty($_POST)) {
-    try {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $date = date("Y-m-d");
-        $company = $_POST['company'];
         
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl0";
