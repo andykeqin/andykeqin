@@ -40,26 +40,19 @@
     }
         
     // Retrieve data
-     $sql_select = "SELECT * FROM registration_tbl0";
-    $stmt = $conn->prepare("SELECT * FROM registration_tbl0 where name = ?");
-    $registrants = $stmt->fetchAll();
-    if ($stmt->execute(array($_GET['name'])) {
-        echo "<h2>People who are registered:</h2>";
-        echo "<table>";
-        echo "<tr><th>Name</th>";
-        echo "<th>Email</th>";
-        echo "<th>Date</th>";
-        echo "<th>Company</th></tr>";
-        foreach($registrants as $registrant) {
-            echo "<tr><td>".$registrant['name']."</td>";
-            echo "<td>".$registrant['email']."</td>";
-            echo "<td>".$registrant['date']."</td>";
-            echo "<td>".$registrant['company']."</td></tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "<h3>No one is currently registered.</h3>";
-    }
-?>
+    mysql_select_db(DATABASE_NAME);
+//切换到testdb
+$query =
+"SELECT uri,title FROM testdb WHERE 1 ORDER by rand() LIMIT 1";
+//上面这句的意思是从testdb中随机提取一条数据。
+$result = mysql_query($query);
+//查询
+while ($row = mysql_fetch_array($result)) { echo "<p id="title">" ,
+($row['title']) , "</p><p id="uri">&ndash;" , nl2br($row['uri'])
+, "</p>"; }
+//显示结果
+mysql_free_result($result);
+//释放结果
+mysql_close();
 </body>
 </html>
