@@ -40,15 +40,14 @@
     }
         
     // Retrieve data
-    mysql_select_db(DATABASE_NAME);
+    mysql_select_db(registration_tbl0);
 //切换到testdb
-$query =
-"SELECT uri,title FROM testdb WHERE 1 ORDER by rand() LIMIT 1";
-//上面这句的意思是从testdb中随机提取一条数据。
+$query = "SELECT name,email,date,company FROM registration_tbl0";
+。
 $result = mysql_query($query);
 //查询
-while ($row = mysql_fetch_array($result)) { echo "<p id="title">" ,
-($row['title']) , "</p><p id="uri">&ndash;" , nl2br($row['uri'])
+while ($row = mysql_fetch_array($result)) { 
+    echo "<p id="name">" , ($row['name']) , "</p><p id="uri">&ndash;" , nl2br($row['email'])
 , "</p>"; }
 //显示结果
 mysql_free_result($result);
