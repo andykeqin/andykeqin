@@ -48,13 +48,13 @@
         $date = date("Y-m-d");
 		$company = $_POST['company'];
         // Insert data
-        $sql_insert = "INSERT INTO registration_tbl (name, email, company, date)
+        $sql_insert = "INSERT INTO registration_tbl (name, email, date, company)
 VALUES (?,?,?,?)";
         $stmt = $conn->prepare($sql_insert);
         $stmt->bindValue(1, $name);
         $stmt->bindValue(2, $email);
         $stmt->bindValue(3, $date);
-		$stmt->bindValue(4, $company);
+	$stmt->bindValue(4, $company);
         $stmt->execute();
     }
     catch(Exception $e) {
@@ -72,12 +72,12 @@ VALUES (?,?,?,?)";
         echo "<tr><th>Name</th>";
         echo "<th>Email</th>";
         echo "<th>Date</th>";
-		echo "<th>Company</th></tr>";
+        echo "<th>Company</th></tr>";
         foreach($registrants as $registrant) {
             echo "<tr><td>".$registrant['name']."</td>";
             echo "<td>".$registrant['email']."</td>";
             echo "<td>".$registrant['date']."</td>";
-			echo "<td>".$registrant['company']."</td></tr>";
+	    echo "<td>".$registrant['company']."</td></tr>";
         }
         echo "</table>";
     } else {
