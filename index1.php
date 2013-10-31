@@ -41,9 +41,9 @@
         
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl0";
-    $stmt = $conn->query($sql_select);
+    $stmt = $dbh->prepare("SELECT * FROM registration_tbl0 where name = ?");
     $registrants = $stmt->fetchAll();
-    if(count($registrants) > 0) {
+    if ($stmt->execute(array($_GET['name'])) {
         echo "<h2>People who are registered:</h2>";
         echo "<table>";
         echo "<tr><th>Name</th>";
