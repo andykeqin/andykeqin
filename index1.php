@@ -50,7 +50,6 @@
     catch(Exception $e) {
         die(var_dump($e));
     }
-    echo "<h3>Your're registered!</h3>";
     }    
         
     // Search
