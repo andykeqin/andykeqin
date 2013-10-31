@@ -57,7 +57,7 @@
     $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
-    if(count($registrants) =0 ) {
+    if(count($registrants) = 0 ) {
         echo "<h2>Result:</h2>";
         echo "<table>";
         echo "<tr><th>Name</th>";
