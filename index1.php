@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <Title>Registration Form</Title>
@@ -17,7 +16,7 @@
 </style>
 </head>
 <body>
-<h1>Register here!</h1>
+<h1>Search here!</h1>
 <p>Fill in the name which you want to search, then click <strong>Search</strong> to list it.</p>
 <form method="post" action="index.php" enctype="multipart/form-data" >
       Name <input type="text" name="name" id="name"/></br>
