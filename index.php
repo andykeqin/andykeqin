@@ -23,6 +23,7 @@
       Email <input type="text" name="email" id="email"/></br>
       Company <input type="text" name="company" id="company"/></br>
       <input type="submit" name="submit" value="Submit" />
+      <a href="http://andykeqin.azurewebsites.net/index1.php" title="Search the Database">Search the Database</a>
 </form>
 <?php
     // DB connection info
