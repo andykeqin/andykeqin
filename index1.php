@@ -39,19 +39,49 @@
         die(var_dump($e));
     }
         
+    // Insert registration info
+    if(!empty($_POST)) {
+    try {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $date = date("Y-m-d");
+        $company = $_POST['company'];
+        // Insert data
+        $sql_insert = "INSERT INTO registration_tbl0 (name, email, date, company)
+VALUES (?,?,?,?)";
+        $stmt = $conn->prepare($sql_insert);
+        $stmt->bindValue(1, $name);
+        $stmt->bindValue(2, $email);
+        $stmt->bindValue(3, $date);
+        $stmt->bindValue(4, $company);
+        $stmt->execute();
+    }
+    catch(Exception $e) {
+        die(var_dump($e));
+    }
+    echo "<h3>Your're registered!</h3>";
+    }
     // Retrieve data
-    mysql_select_db(registration_tbl0);
-//切换到testdb
-$query = "SELECT name,email,date,company FROM registration_tbl0";
-。
-$result = mysql_query($query);
-//查询
-while ($row = mysql_fetch_array($result)) { 
-    echo "<p id="name">" , ($row['name']) , "</p><p id="uri">&ndash;" , nl2br($row['email'])
-, "</p>"; }
-//显示结果
-mysql_free_result($result);
-//释放结果
-mysql_close();
+    $sql_select = "SELECT * FROM registration_tbl0";
+    $stmt = $conn->query($sql_select);
+    $registrants = $stmt->fetchAll();
+    if(count($registrants) > 0) {
+        echo "<h2>People who are registered:</h2>";
+        echo "<table>";
+        echo "<tr><th>Name</th>";
+        echo "<th>Email</th>";
+        echo "<th>Date</th>";
+        echo "<th>Company</th></tr>";
+        foreach($registrants as $registrant) {
+            echo "<tr><td>".$registrant['name']."</td>";
+            echo "<td>".$registrant['email']."</td>";
+            echo "<td>".$registrant['date']."</td>";
+            echo "<td>".$registrant['company']."</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "<h3>No one is currently registered.</h3>";
+    }
+?>
 </body>
 </html>
