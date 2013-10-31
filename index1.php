@@ -40,7 +40,8 @@
     }
         
     // Retrieve data
-    $stmt = $dbh->prepare("SELECT * FROM registration_tbl0 where name = ?");
+     $sql_select = "SELECT * FROM registration_tbl0";
+    $stmt = $conn->prepare("SELECT * FROM registration_tbl0 where name = ?");
     $registrants = $stmt->fetchAll();
     if ($stmt->execute(array($_GET['name'])) {
         echo "<h2>People who are registered:</h2>";
