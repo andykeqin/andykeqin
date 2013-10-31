@@ -17,9 +17,9 @@
 </head>
 <body>
 <h2>Search here!</h2>
-<p>Fill in the name which you want to search, then click <strong>Search</strong> to list it.</p>
+<p>Fill in the <strong>Name</strong> which you want to search, then click <strong>Search</strong> to list it.</p>
 <form method="post" action="index1.php" enctype="multipart/form-data" >
-      Search <input type="text" name="name" id="name"/></br>
+      Search by Name <input type="text" name="name" id="name"/></br>
       <input type="submit" name="search" value="Search" />
 </form>
 <?php
