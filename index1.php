@@ -46,6 +46,15 @@
         $email = $_POST['email'];
         $company = $_POST['company'];
         $date = date("Y-m-d");
+        
+        $sql_insert = "SEARCH registration_tbl0 (name, email, date, company)
+VALUES (?,?,?,?)";
+        $stmt = $conn->prepare($sql_insert);
+        $stmt->bindValue(1, $name);
+        $stmt->bindValue(2, $email);
+        $stmt->bindValue(3, $date);
+        $stmt->bindValue(4, $company);
+        $stmt->execute();
     }
     catch(Exception $e) {
         die(var_dump($e));
