@@ -47,7 +47,7 @@
         $company = $_POST['company'];
         $date = date("Y-m-d");
         
-        $sql_insert = "SEARCH registration_tbl0 (name, email, date, company)
+        $sql_insert = "SEARCH * FROM registration_tbl0 (name, email, date, company)
 VALUES (?,?,?,?)";
         $stmt = $conn->prepare($sql_insert);
         $stmt->bindValue(1, $name);
