@@ -42,11 +42,11 @@
     // Insert registration info
     if(!empty($_POST)) {
     try {
-        $name = $_POST['name'];
+        $search = $_POST['search'];
         
-        $sql_insert = "SELECT * FROM registration_tbl0 LIKE CONTACT VALUES (?)";
-        $stmt = $conn->prepare($sql_insert);
-        $stmt->bindValue(1, $name);
+        $sql_search = "SELECT * FROM registration_tbl0 LIKE CONTACT ('%',?,'%')";
+        $stmt = $conn->prepare($sql_search);
+        $stmt->bindValue(1, $search);
         $stmt->execute();
     }
     catch(Exception $e) {
