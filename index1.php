@@ -21,6 +21,7 @@
 <form method="post" action="index1.php" enctype="multipart/form-data" >
       Search by Name <input type="text" name="name" id="name"/></br>
       <input type="submit" name="search" value="Search" />
+      <a href="http://andykeqin.azurewebsites.net/index.php" title="Back to Registration Form">Back to Registration Form</a>
 </form>
 <?php
     // DB connection info
