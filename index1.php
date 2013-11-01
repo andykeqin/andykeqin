@@ -21,7 +21,6 @@
 <form method="post" action="index1.php" enctype="multipart/form-data" >
       Search by Name <input type="text" name="name" id="name"/></br>
       <input type="submit" name="search" value="Search" />
-      <a href="http://andykeqin.azurewebsites.net/index.php" title="Back to Registration Form">Back to Registration Form</a>
 </form>
 <?php
     // DB connection info
@@ -51,10 +50,10 @@
     catch(Exception $e) {
         die(var_dump($e));
     }
-    }    
+    }
         
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE '%$name'";
+    $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE '%$name%'";
     $stmt = $conn->prepare($sql_select);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
