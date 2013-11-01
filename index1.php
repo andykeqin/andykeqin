@@ -43,16 +43,10 @@
     if(!empty($_POST)) {
     try {
         $name = $_POST['name'];
-        $email = $_POST['email'];
-        $company = $_POST['company'];
-        $date = date("Y-m-d");
         
-        $sql_search = "SEARCH * FROM registration_tbl0";
-        $stmt = $conn->prepare($sql_search);
+        $sql_insert = "SELECT * FROM registration_tbl0 LIKE CONTACT VALUES (?)";
+        $stmt = $conn->prepare($sql_insert);
         $stmt->bindValue(1, $name);
-        $stmt->bindValue(2, $email);
-        $stmt->bindValue(3, $date);
-        $stmt->bindValue(4, $company);
         $stmt->execute();
     }
     catch(Exception $e) {
