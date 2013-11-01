@@ -42,12 +42,11 @@
     // Insert registration info
     if(!empty($_POST)) {
     try {
-        $search = $_POST['search'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $date = date("Y-m-d");
+        $company = $_POST['company'];
         
-        $sql_search = "SELECT * FROM registration_tbl0 LIKE CONTACT ('%',?,'%')";
-        $stmt = $conn->prepare($sql_search);
-        $stmt->bindValue(1, $search);
-        $stmt->execute();
     }
     catch(Exception $e) {
         die(var_dump($e));
@@ -57,6 +56,7 @@
     // Retrieve data
     $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE '%$name%'";
     $stmt = $conn->prepare($sql_select);
+    $stmt->bindValue(1, $name);
     $stmt->execute();
     $registrants = $stmt->fetchAll();
     if(count($registrants) >0 ) {
