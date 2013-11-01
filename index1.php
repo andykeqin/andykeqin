@@ -54,7 +54,7 @@
     }
         
     // Retrieve data
-    $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE '%$name%'";
+    $sql_select = "SELECT * FROM registration_tbl0 WHERE name LIKE concat('%',?,'%')";
     $stmt = $conn->prepare($sql_select);
     $stmt->bindValue(1, $name);
     $stmt->execute();
