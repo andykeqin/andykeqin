@@ -74,7 +74,7 @@
         }
         echo "</table>";
     } else {
-        echo "<h3>No one is searched.</h3>";
+        echo "<h3>No one is searched！</h3>";
     }
 ?>
 </body>
